@@ -1,0 +1,201 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    width: 100vw;
+    height: 25vh;
+    float: top;
+    background-color: rgb(204, 173, 89);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav > span {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-weight: 520;
+    font-size: 5rem;
+}
+
+.viewport {
+    height: 75vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-panel {
+    background-color: rgb(240, 235, 245);
+    height: 60vh;
+    margin-left: 30px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+div.side-panel > span ~ div {
+    background-color: rgb(231, 6, 220);
+    height: 15%;
+    width: 90%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+div.side-panel > span ~ div > span {
+    font-size: 1.2rem;
+    font-weight: 550;
+    color: white;
+}
+
+.reset-btn {
+    background-color: rgb(58, 49, 49);
+    color: white;
+    border-radius: 0;
+    height: 10%;
+    width: 30%;
+    font-size: larger;
+    transition: height 0.3s ease-in-out, width 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.reset-btn:hover {
+    background-color: transparent;
+    color: black;
+    border-radius: 0;
+    height: 12%;
+    width: 34%;
+    border-color: black;
+}
+
+.welcome-text {
+    margin-top: 10px;
+    font-weight: bolder;
+}
+
+.cell {
+    border: 2.5px solid black;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.cell.x, .cell.circle {
+    cursor: not-allowed;
+}
+
+.cell.btop {
+    border-top: 0;
+}
+
+.cell.bbottom {
+    border-bottom: 0;
+}
+
+.cell.bright {
+    border-right: 0;
+}
+
+.cell.bleft {
+    border-left: 0;
+}
+
+.cell.x::before, .cell.x::after {
+    content: "";
+    height: 5rem;
+    width: 1rem;
+    background-color: black;
+    position: absolute;
+}
+
+.cell.x::before {
+    transform: rotate(45deg);
+}
+
+.cell.x::after {
+    transform: rotate(-45deg);
+}
+
+.cell.circle::before, .cell.circle::after {
+    content: "";
+    border-radius: 100%;
+    position: absolute;
+}
+
+.cell.circle::before {
+    background-color: black;
+    height: 5rem;
+    width: 5rem;
+}
+
+.cell.circle::after {
+    background-color: white;
+    height: 3rem;
+    width: 3rem;
+}
+
+
+
+
+
+/* Hover effect */
+.board.x .cell:not(.x):not(.circle):hover::before, .board.x .cell:not(.x):not(.circle):hover::after {
+    content: "";
+    height: 5rem;
+    width: 1rem;
+    background-color: lightgrey;
+    position: absolute;
+}
+
+.board.x .cell:not(.x):not(.circle):hover::before {
+    transform: rotate(45deg);
+}
+
+.board.x .cell:not(.x):not(.circle):hover::after {
+    transform: rotate(-45deg);
+}
+
+.board.circle .cell:not(.x):not(.circle):hover::before, .board.circle .cell:not(.x):not(.circle):hover::after {
+    content: "";
+    border-radius: 100%;
+    position: absolute;
+}
+
+.board.circle .cell:not(.x):not(.circle):hover::before {
+    background-color: lightgrey;
+    height: 5rem;
+    width: 5rem;
+}
+
+.board.circle .cell:not(.x):not(.circle):hover::after {
+    background-color: white;
+    height: 3rem;
+    width: 3rem;
+}
+
+
+
+
+
