@@ -47,7 +47,7 @@ function handleClick(ev) {
     placeMark(cell, currentTurn);
     if (checkWin(currentTurn)) {
         endGame(true);  //win
-        // displayWinLine();
+        displayWinLine();
     }
     else if (isDraw()) {
         endGame(false);   //draw
@@ -122,8 +122,9 @@ function displayTurnText() {
 }
 
 function displayWinLine(currentTurn) {
+    let cellElementsArray = [...cellElements];
     if (winCombinations[0].every(index => {
-        cellElements[index].classList.contains(currentTurn)
+        cellElementsArray[index].classList.contains(currentTurn)
     })) {
         console.log("Nice!");
     }
@@ -134,7 +135,7 @@ function displayWinLine(currentTurn) {
 //         let [a, b, c] = condition;
         
 //         if (cellElements[a] != null && cellElements[a] == cellElements[c] && cellElements[a] == cellElements[b]) {
-//             return [a, b, c];
+            
 //         }
 //     }
 // }
